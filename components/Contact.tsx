@@ -29,13 +29,13 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-6">
+    <div className="container mx-auto px-4 sm:px-6">
       {/* Upper Info Grid */}
-      <div className="grid md:grid-cols-3 gap-8 mb-16">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
         {[
-          { icon: <Phone className="text-blue-500" />, title: "Línea Directa", detail: "+57 (300) 888-9000", sub: "Atención Senior 8am - 6pm" },
-          { icon: <Mail className="text-blue-500" />, title: "Email Institucional", detail: "business@hscontadores.co", sub: "Respuesta garantizada < 24h" },
-          { icon: <Clock className="text-blue-500" />, title: "Soporte 24/7", detail: "Portal de Clientes", sub: "Exclusivo para socios Gold" },
+          { icon: <Phone className="text-[#D4AF37]" />, title: "Línea Directa", detail: "+57 (300) 888-9000", sub: "Atención Senior 8am - 6pm" },
+          { icon: <Mail className="text-[#D4AF37]" />, title: "Email Institucional", detail: "contacto@hscontadores.co", sub: "Respuesta garantizada < 24h" },
+          { icon: <Clock className="text-[#D4AF37]" />, title: "Soporte 24/7", detail: "Soporte Inmediato", sub: "Exclusivo para socios Gold" },
         ].map((item, i) => (
           <motion.div 
             key={i}
@@ -43,26 +43,28 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...SPRING_TRANSITION, delay: i * 0.1 }}
-            className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all group"
+            className="p-4 sm:p-6 md:p-8 bg-white rounded-2xl sm:rounded-3xl border border-[#D4AF37]/20 shadow-sm hover:shadow-xl hover:shadow-[#D4AF37]/10 transition-all group"
           >
-            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#004085] group-hover:text-white transition-colors duration-500">
-              {item.icon}
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black border border-[#D4AF37]/30 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#D4AF37] group-hover:text-black transition-colors duration-500">
+              {React.cloneElement(item.icon as React.ReactElement<any>, {
+                className: "w-5 h-5 sm:w-6 sm:h-6"
+              })}
             </div>
-            <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">{item.title}</h4>
-            <p className="text-xl font-bold text-[#004085] mb-1">{item.detail}</p>
-            <p className="text-sm text-slate-500 font-light">{item.sub}</p>
+            <h4 className="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-1 sm:mb-2">{item.title}</h4>
+            <p className="text-base sm:text-lg md:text-xl font-bold text-[#D4AF37] mb-1 break-all">{item.detail}</p>
+            <p className="text-xs sm:text-sm text-slate-500 font-light">{item.sub}</p>
           </motion.div>
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto bg-white rounded-[3rem] shadow-2xl shadow-blue-900/10 overflow-hidden border border-slate-50">
+      <div className="max-w-7xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-[#D4AF37]/10 overflow-hidden border border-[#D4AF37]/10">
         <div className="grid lg:grid-cols-5">
           
           {/* Form Side (60%) */}
-          <div className="lg:col-span-3 p-10 lg:p-20 border-r border-slate-50">
+          <div className="lg:col-span-3 p-6 sm:p-8 md:p-10 lg:p-20 border-b lg:border-b-0 lg:border-r border-slate-50">
             <div className="max-w-xl">
-              <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 tracking-tight">Inicie su <span className="text-blue-500">Transformación.</span></h2>
-              <p className="text-slate-500 text-lg mb-12 font-light leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 tracking-tight text-black">Inicie su <span className="text-[#D4AF37] font-serif-premium">Transformación.</span></h2>
+              <p className="text-slate-500 text-sm sm:text-base md:text-lg mb-8 sm:mb-10 md:mb-12 font-light leading-relaxed">
                 Complete el protocolo de consulta inicial. Un consultor senior analizará su caso antes del primer contacto.
               </p>
 
@@ -78,19 +80,19 @@ const Contact: React.FC = () => {
                   >
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="group space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#004085] transition-colors">Nombre de la Compañía</label>
-                        <input required type="text" placeholder="Corporativo S.A." className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#004085] transition-all outline-none text-lg font-medium" />
+                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Nombre de la Compañía</label>
+                        <input required type="text" placeholder="Corporativo S.A." className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-lg font-medium" />
                       </div>
                       <div className="group space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#004085] transition-colors">Email Corporativo</label>
-                        <input required type="email" placeholder="directivo@empresa.com" className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#004085] transition-all outline-none text-lg font-medium" />
+                        <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Email Corporativo</label>
+                        <input required type="email" placeholder="directivo@empresa.com" className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium" />
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                       <div className="group space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#004085] transition-colors">Sector / Industria</label>
-                        <select className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#004085] transition-all outline-none text-lg font-medium text-slate-600 cursor-pointer">
+                        <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Sector / Industria</label>
+                        <select className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium text-slate-600 cursor-pointer">
                           <option>Tecnología / SaaS</option>
                           <option>Manufactura / Logística</option>
                           <option>Banca / Fintech</option>
@@ -99,8 +101,8 @@ const Contact: React.FC = () => {
                         </select>
                       </div>
                       <div className="group space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#004085] transition-colors">Servicio Requerido</label>
-                        <select className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#004085] transition-all outline-none text-lg font-medium text-slate-600 cursor-pointer">
+                        <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Servicio Requerido</label>
+                        <select className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium text-slate-600 cursor-pointer">
                           <option>Auditoría Integral</option>
                           <option>Estrategia Tributaria</option>
                           <option>BPO Contable</option>
@@ -110,8 +112,8 @@ const Contact: React.FC = () => {
                     </div>
 
                     <div className="group space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#004085] transition-colors">Descripción del Requerimiento Estratégico</label>
-                      <textarea rows={4} placeholder="¿Qué desafíos financieros busca resolver?" className="w-full p-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-[#004085] transition-all outline-none resize-none text-slate-700" />
+                      <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Descripción del Requerimiento Estratégico</label>
+                      <textarea rows={4} placeholder="¿Qué desafíos financieros busca resolver?" className="w-full p-3 sm:p-4 bg-slate-50 border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D4AF37] transition-all outline-none resize-none text-sm sm:text-base text-slate-700" />
                     </div>
                     
                     <motion.button
@@ -119,14 +121,14 @@ const Contact: React.FC = () => {
                       whileTap={{ scale: 0.98 }}
                       disabled={loading}
                       type="submit"
-                      className="w-full py-6 bg-[#004085] text-white rounded-2xl font-bold flex items-center justify-center space-x-4 shadow-2xl shadow-blue-900/20 disabled:opacity-70 group"
+                      className="w-full py-4 sm:py-5 md:py-6 bg-[#D4AF37] text-black rounded-xl sm:rounded-2xl font-bold flex items-center justify-center space-x-3 sm:space-x-4 shadow-2xl shadow-[#D4AF37]/20 hover:bg-[#FFD700] disabled:opacity-70 group transition-colors"
                     >
                       {loading ? (
-                        <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 border-3 border-black/30 border-t-black rounded-full animate-spin" />
                       ) : (
                         <>
-                          <span className="text-lg tracking-tight">Solicitar Auditoría Preliminar</span>
-                          <ArrowUpRight size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          <span className="text-sm sm:text-base md:text-lg tracking-tight">Solicitar Auditoría Preliminar</span>
+                          <ArrowUpRight size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                         </>
                       )}
                     </motion.button>
@@ -158,7 +160,7 @@ const Contact: React.FC = () => {
                     </p>
                     <button 
                       onClick={() => setIsSubmitted(false)}
-                      className="px-8 py-3 bg-slate-100 text-[#004085] rounded-xl font-bold hover:bg-slate-200 transition-colors"
+                      className="px-8 py-3 bg-black border border-[#D4AF37]/30 text-[#D4AF37] rounded-xl font-bold hover:bg-[#D4AF37] hover:text-black transition-colors"
                     >
                       Nuevo Requerimiento
                     </button>
@@ -169,40 +171,40 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Side Info Panel (40%) */}
-          <div className="lg:col-span-2 bg-slate-950 p-10 lg:p-20 text-white flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] -mr-32 -mt-32" />
+          <div className="lg:col-span-2 bg-black p-6 sm:p-8 md:p-10 lg:p-20 text-white flex flex-col justify-between relative overflow-hidden border-t lg:border-t-0 lg:border-l border-[#D4AF37]/10">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[100px] -mr-32 -mt-32" />
             
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-12 flex items-center space-x-3">
-                <span className="w-8 h-px bg-blue-500"></span>
+                <span className="w-8 h-px bg-[#D4AF37]"></span>
                 <span>Reach Global</span>
               </h3>
               
               <div className="space-y-12">
                 <div>
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 bg-white/5 rounded-xl text-blue-400">
+                    <div className="p-3 bg-black border border-[#D4AF37]/30 rounded-xl text-[#D4AF37]">
                       <MapPin size={20} />
                     </div>
-                    <h4 className="text-sm font-black uppercase tracking-widest text-blue-100/50">HQ Bogotá</h4>
+                    <h4 className="text-sm font-black uppercase tracking-widest text-white/50">HQ Manizales</h4>
                   </div>
-                  <p className="text-xl font-light text-blue-50 leading-relaxed ml-14">
-                    World Trade Center, Piso 18<br />
-                    Calle 100 #8A - 55<br />
-                    Bogotá D.C., Colombia
+                  <p className="text-xl font-light text-white/80 leading-relaxed ml-14">
+                    Centro Comercial, Oficina 301<br />
+                    Carrera 23 #19-20<br />
+                    Manizales, Caldas, Colombia
                   </p>
                 </div>
 
                 <div>
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 bg-white/5 rounded-xl text-blue-400">
+                    <div className="p-3 bg-black border border-[#D4AF37]/30 rounded-xl text-[#D4AF37]">
                       <Globe size={20} />
                     </div>
-                    <h4 className="text-sm font-black uppercase tracking-widest text-blue-100/50">Operaciones Latam</h4>
+                    <h4 className="text-sm font-black uppercase tracking-widest text-white/50">Operaciones Latam</h4>
                   </div>
                   <div className="ml-14 flex flex-wrap gap-3">
                     {['Colombia', 'México', 'Panamá', 'Chile', 'Ecuador'].map(country => (
-                      <span key={country} className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-xs font-medium text-blue-200">
+                      <span key={country} className="px-3 py-1 bg-black border border-[#D4AF37]/30 rounded-lg text-xs font-medium text-[#D4AF37]">
                         {country}
                       </span>
                     ))}
@@ -211,11 +213,11 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative z-10 pt-16 border-t border-white/10">
-              <div className="p-6 bg-blue-500/10 rounded-2xl border border-blue-500/20 backdrop-blur-md">
-                <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-2">Canal de Emergencia</p>
-                <p className="text-white font-bold mb-1">priority@hscontadores.co</p>
-                <p className="text-xs text-blue-100/40 font-light">Exclusivo para situaciones de auditoría inmediata o crisis tributaria.</p>
+            <div className="relative z-10 pt-16 border-t border-[#D4AF37]/20">
+              <div className="p-6 bg-[#D4AF37]/10 rounded-2xl border border-[#D4AF37]/30 backdrop-blur-md">
+                <p className="text-xs font-black uppercase tracking-widest text-[#D4AF37] mb-2">Canal de Emergencia</p>
+                <p className="text-white font-bold mb-1">contacto@hscontadores.co</p>
+                <p className="text-xs text-white/50 font-light">Exclusivo para situaciones de auditoría inmediata o crisis tributaria.</p>
               </div>
             </div>
           </div>

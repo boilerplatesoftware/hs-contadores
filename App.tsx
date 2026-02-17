@@ -12,7 +12,7 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col selection:bg-[#E0F2FE] selection:text-[#004085]">
+    <div className="min-h-screen flex flex-col selection:bg-[#D4AF37]/20 selection:text-[#000000]">
       <Navbar />
       
       <main className="flex-grow">
@@ -24,7 +24,7 @@ const App: React.FC = () => {
           <About />
         </section>
         
-        <section id="servicios" className="py-24 bg-[#F0F9FF]">
+        <section id="servicios" className="py-24 bg-[#000000]">
           <Services />
         </section>
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
           <Projects />
         </section>
 
-        <section id="socios" className="py-24 bg-[#F0F9FF]">
+        <section id="socios" className="py-24 bg-[#0A0A0A]">
           <Partners />
         </section>
 

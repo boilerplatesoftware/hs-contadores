@@ -1,20 +1,26 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# HS Contadores - Project Specification
 
-# Run and deploy your AI Studio app
+## 🎯 Objetivo
+Diseñar una página web corporativa, moderna y profesional para firma contable / gestores públicos empresariales, tomando como referencia visual y de contenido el Instagram:
+👉 https://www.instagram.com/soytutributario/
 
-This contains everything you need to run your app locally.
+También considerar como referencia conceptual:
+- **Gestores Públicos Empresariales**
+- **HS Contadores Públicos**
 
-View your app in AI Studio: https://ai.studio/apps/drive/15tsrhfuB_y6gGBHHvYIjGilzy_Odmyzq
+El objetivo es transmitir **autoridad, confianza, elegancia y profesionalismo**.
 
-## Run Locally
+## 🎨 Lineamientos de Diseño
 
-**Prerequisites:**  Node.js
+### Paleta de colores:
+- **Negro**: Base principal
+- **Dorado**: Detalles, acentos, botones, íconos
+- **Blanco**: Fondos y contraste
 
+### Estilo
+- Elegante, sobrio, minimalista y corporativo.
+- Uso de tipografía moderna y limpia.
+- Sensación de firma premium.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+*Este README actúa como prompt maestro para el desarrollo del sitio web.*

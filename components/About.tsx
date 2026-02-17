@@ -3,6 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Award, Globe, Shield, Zap } from 'lucide-react';
 import { SPRING_TRANSITION } from '../constants';
+import StatCard from './ui/StatCard';
+import MissionVisionCard from './ui/MissionVisionCard';
+import ValueCard from './ui/ValueCard';
 
 const stats = [
   { label: 'Años de Trayectoria', value: '15+' },
@@ -31,21 +34,21 @@ const values = [
 
 const About: React.FC = () => {
   return (
-    <div className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-6">
+    <div className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Main Section: Story & Image */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center mb-16 sm:mb-24 md:mb-32">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={SPRING_TRANSITION}
           >
-            <span className="text-[#004085] font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Nuestra Identidad</span>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-8 tracking-tight">
-              Más que Contadores, somos su <span className="text-blue-500">Socio de Crecimiento</span>
+            <span className="text-[#D4AF37] font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-3 sm:mb-4 block">Nuestra Identidad</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 md:mb-8 tracking-tight text-black">
+              Más que Contadores, somos su <span className="text-[#D4AF37] font-serif-premium">Socio de Crecimiento</span>
             </h2>
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
+            <div className="space-y-4 sm:space-y-6 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-light">
               <p>
                 Fundada con la premisa de que la contabilidad es el lenguaje del éxito empresarial, 
                 HS Contadores ha evolucionado para convertirse en una firma de consultoría 
@@ -58,21 +61,17 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-8 mt-12">
-              <div className="p-6 bg-[#F0F9FF] rounded-2xl">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#004085] mb-4 shadow-sm">
-                  <Target size={24} />
-                </div>
-                <h4 className="font-bold mb-2">Misión</h4>
-                <p className="text-sm text-slate-500">Transformar la complejidad contable en claridad estratégica para decisiones de alto impacto.</p>
-              </div>
-              <div className="p-6 bg-[#F0F9FF] rounded-2xl">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#004085] mb-4 shadow-sm">
-                  <Eye size={24} />
-                </div>
-                <h4 className="font-bold mb-2">Visión</h4>
-                <p className="text-sm text-slate-500">Ser el estándar de oro en consultoría financiera y legal en la región para 2030.</p>
-              </div>
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
+              <MissionVisionCard
+                icon={Target}
+                title="Misión"
+                description="Transformar la complejidad contable en claridad estratégica para decisiones de alto impacto."
+              />
+              <MissionVisionCard
+                icon={Eye}
+                title="Visión"
+                description="Ser el estándar de oro en consultoría financiera y legal en la región para 2030."
+              />
             </div>
           </motion.div>
 
@@ -105,46 +104,34 @@ const About: React.FC = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-16 sm:mb-24 md:mb-32">
           {stats.map((stat, idx) => (
-            <motion.div
+            <StatCard
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ ...SPRING_TRANSITION, delay: idx * 0.1 }}
-              className="text-center p-8 rounded-3xl border border-slate-100 hover:bg-slate-50 transition-colors"
-            >
-              <p className="text-4xl lg:text-5xl font-black text-[#004085] mb-2">{stat.value}</p>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">{stat.label}</p>
-            </motion.div>
+              value={stat.value}
+              label={stat.label}
+              delay={idx * 0.1}
+            />
           ))}
         </div>
 
         {/* Values Section */}
-        <div className="bg-[#004085] rounded-[3rem] p-12 lg:p-20 text-white">
+        <div className="bg-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-20 text-white border border-[#D4AF37]/20">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h3 className="text-3xl lg:text-4xl font-extrabold mb-4">Nuestros Pilares</h3>
-              <p className="text-blue-200 text-lg font-light">Fundamentos que rigen cada interacción con nuestros socios comerciales.</p>
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4">Nuestros Pilares</h3>
+              <p className="text-white/70 text-sm sm:text-base md:text-lg font-light px-4">Fundamentos que rigen cada interacción con nuestros socios comerciales.</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
               {values.map((value, idx) => (
-                <motion.div
+                <ValueCard
                   key={value.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ ...SPRING_TRANSITION, delay: idx * 0.1 }}
-                  className="space-y-4"
-                >
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
-                    {value.icon}
-                  </div>
-                  <h4 className="text-xl font-bold">{value.title}</h4>
-                  <p className="text-blue-100/70 font-light leading-relaxed">{value.desc}</p>
-                </motion.div>
+                  icon={value.icon}
+                  title={value.title}
+                  description={value.desc}
+                  delay={idx * 0.1}
+                />
               ))}
             </div>
           </div>
