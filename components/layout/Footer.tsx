@@ -2,8 +2,13 @@
 import React from 'react';
 import { Linkedin, Twitter, Facebook, ArrowUp } from 'lucide-react';
 import { NAV_ITEMS } from '../../constants';
+import { ViewState } from '../../App';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  setView: (view: ViewState) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setView }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -11,7 +16,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black border-t border-[#D4AF37]/20 pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 md:pb-10">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16 md:mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16 md:mb-20">
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4 sm:mb-6">
               <div className="w-8 h-8 bg-[#D4AF37] flex items-center justify-center rounded-lg">
@@ -42,6 +47,7 @@ const Footer: React.FC = () => {
                 <li key={item.label}>
                   <a
                     href={item.href}
+                    onClick={() => setView('home')}
                     className="text-white/70 hover:text-[#D4AF37] transition-colors flex items-center group"
                   >
                     <span className="w-0 group-hover:w-2 h-px bg-[#D4AF37] mr-0 group-hover:mr-2 transition-all"></span>
@@ -56,26 +62,39 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-4 sm:mb-6 md:mb-8">Legal</h4>
             <ul className="space-y-3 sm:space-y-4">
-              <li><a href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors">Términos de Servicio</a></li>
-              <li><a href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors">Política de Privacidad</a></li>
-              <li><a href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors">Cumplimiento SARLAFT</a></li>
-              <li><a href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors">Cookies</a></li>
+              <li>
+                <button
+                  onClick={() => setView('terms')}
+                  className="text-white/70 hover:text-[#D4AF37] transition-colors"
+                >
+                  Términos de Servicio
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setView('privacy')}
+                  className="text-white/70 hover:text-[#D4AF37] transition-colors"
+                >
+                  Política de Privacidad
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setView('sarlaft')}
+                  className="text-white/70 hover:text-[#D4AF37] transition-colors"
+                >
+                  Cumplimiento SARLAFT
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setView('cookies')}
+                  className="text-white/70 hover:text-[#D4AF37] transition-colors"
+                >
+                  Cookies
+                </button>
+              </li>
             </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-4 sm:mb-6 md:mb-8">Newsletter</h4>
-            <p className="text-white/70 mb-4 sm:mb-6 font-light text-sm sm:text-base">Suscríbase para recibir actualizaciones financieras críticas.</p>
-            <div className="flex space-x-2">
-              <input type="email" placeholder="email@empresa.com" className="flex-grow px-3 sm:px-4 py-2 sm:py-3 bg-black border border-[#D4AF37]/30 rounded-lg sm:rounded-xl outline-none text-xs sm:text-sm text-white placeholder-white/30 focus:border-[#D4AF37]" />
-              <button
-                onClick={scrollToTop}
-                className="p-2 sm:p-3 bg-[#D4AF37] text-black rounded-lg sm:rounded-xl hover:bg-[#FFD700] transition-colors shadow-lg shadow-[#D4AF37]/20"
-                title="Volver arriba"
-              >
-                <ArrowUp size={16} className="sm:w-[18px] sm:h-[18px]" />
-              </button>
-            </div>
           </div>
         </div>
 

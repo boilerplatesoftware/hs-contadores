@@ -1,14 +1,26 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FileText, Shield, Scale, AlertCircle, CheckCircle2, ArrowLeft } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FileText, Shield, Scale, AlertCircle, CheckCircle2, ArrowLeft, ChevronDown } from 'lucide-react';
 import { SPRING_TRANSITION } from '../../constants';
 import Button from '../ui/Button';
 import SectionHeader from '../ui/SectionHeader';
 import IconBox from '../ui/IconBox';
 
-const TermsOfService: React.FC = () => {
+import { ViewState } from '../../App';
+
+interface LegalPageProps {
+  setView: (view: ViewState) => void;
+}
+
+const TermsOfService: React.FC<LegalPageProps> = ({ setView }) => {
+  const [activeSection, setActiveSection] = useState<string | null>('1');
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleSection = (id: string) => {
+    setActiveSection(activeSection === id ? null : id);
   };
 
   const sections = [
@@ -148,18 +160,13 @@ Se recomienda revisar periódicamente estos términos para estar informado de cu
             transition={SPRING_TRANSITION}
             className="max-w-4xl mx-auto"
           >
-            <motion.a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.hash = '';
-                window.location.href = window.location.origin + window.location.pathname;
-              }}
+            <motion.button
+              onClick={() => setView('home')}
               className="inline-flex items-center space-x-2 text-white/70 hover:text-[#D4AF37] transition-colors mb-6 sm:mb-8 text-sm sm:text-base"
             >
               <ArrowLeft size={16} />
               <span>Volver al Inicio</span>
-            </motion.a>
+            </motion.button>
 
             <div className="flex items-center space-x-4 mb-6 sm:mb-8">
               <IconBox icon={FileText} variant="gold" size="lg" />
@@ -186,39 +193,63 @@ Se recomienda revisar periódicamente estos términos para estar informado de cu
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-8 sm:space-y-12 md:space-y-16">
-            {sections.map((section, idx) => (
-              <motion.section
-                key={section.id}
-                id={`section-${section.id}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ ...SPRING_TRANSITION, delay: idx * 0.1 }}
-                className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 hover:border-[#D4AF37]/30 transition-colors shadow-sm hover:shadow-lg"
-              >
-                <div className="flex items-start space-x-4 sm:space-x-6 mb-4 sm:mb-6">
-                  <div className="shrink-0">
-                    <IconBox icon={section.icon} variant="default" size="md" />
-                  </div>
-                  <div className="flex-grow">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-widest">
-                        Sección {section.id}
-                      </span>
+          <div className="space-y-4">
+            {sections.map((section, idx) => {
+              const isActive = activeSection === section.id;
+              return (
+                <motion.div
+                  key={section.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ ...SPRING_TRANSITION, delay: idx * 0.05 }}
+                  className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-[#D4AF37]/30 transition-colors shadow-sm"
+                >
+                  <button
+                    onClick={() => toggleSection(section.id)}
+                    className="w-full flex items-center justify-between p-6 text-left transition-colors"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <IconBox icon={section.icon} variant="default" size="sm" />
+                      <div>
+                        <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest block mb-1">
+                          Sección {section.id}
+                        </span>
+                        <h2 className="text-lg sm:text-xl font-bold text-black">
+                          {section.title}
+                        </h2>
+                      </div>
                     </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-6">
-                      {section.title}
-                    </h2>
-                    <div className="prose prose-sm sm:prose-base max-w-none">
-                      <p className="text-slate-600 leading-relaxed whitespace-pre-line text-sm sm:text-base">
-                        {section.content}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.section>
-            ))}
+                    <motion.div
+                      animate={{ rotate: isActive ? 180 : 0 }}
+                      transition={SPRING_TRANSITION}
+                      className="text-[#D4AF37]"
+                    >
+                      <ChevronDown size={20} />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      >
+                        <div className="px-6 pb-8 ml-[60px]">
+                          <div className="prose prose-sm sm:prose-base max-w-none">
+                            <p className="text-slate-600 leading-relaxed whitespace-pre-line text-sm sm:text-base">
+                              {section.content}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Contact Section */}
@@ -241,12 +272,7 @@ Se recomienda revisar periódicamente estos términos para estar informado de cu
                   variant="primary"
                   size="md"
                   href="#"
-                  onClick={() => {
-                    window.location.hash = '';
-                    setTimeout(() => {
-                      window.location.href = window.location.origin + window.location.pathname + '#contacto';
-                    }, 100);
-                  }}
+                  onClick={() => setView('home')}
                   className="w-full sm:w-auto"
                 >
                   Contactar Equipo Legal
