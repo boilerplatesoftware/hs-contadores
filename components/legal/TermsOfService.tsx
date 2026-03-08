@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FileText, Shield, Scale, AlertCircle, CheckCircle2, ArrowLeft, ChevronDown } from 'lucide-react';
-import { SPRING_TRANSITION } from '../../constants';
+import { SPRING_TRANSITION, WHATSAPP_LINK } from '../../constants';
 import Button from '../ui/Button';
 import SectionHeader from '../ui/SectionHeader';
 import IconBox from '../ui/IconBox';
@@ -143,7 +143,7 @@ Ambas partes renuncian a cualquier objeción a la jurisdicción o lugar de dicho
       icon: FileText,
       content: `HS Contadores Públicos S.A.S. se reserva el derecho de modificar estos Términos de Servicio en cualquier momento. Las modificaciones entrarán en vigor al ser publicadas en nuestro sitio web.
 
-Los clientes existentes serán notificados de cambios materiales mediante el método de contacto proporcionado. El uso continuado de nuestros servicios después de dichas modificaciones constituye aceptación de los términos revisados.
+Los clientes existentes serán notificados de cambios materiales mediante el método de comunicación corporativa preferente. El uso continuado de nuestros servicios después de dichas modificaciones constituye aceptación de los términos revisados.
 
 Se recomienda revisar periódicamente estos términos para estar informado de cualquier cambio.`
     }
@@ -271,19 +271,18 @@ Se recomienda revisar periódicamente estos términos para estar informado de cu
                 <Button
                   variant="primary"
                   size="md"
-                  href="#"
-                  onClick={() => setView('home')}
+                  href={WHATSAPP_LINK}
                   className="w-full sm:w-auto"
                 >
-                  Contactar Equipo Legal
+                  Contactar por WhatsApp
                 </Button>
                 <Button
                   variant="secondary"
                   size="md"
-                  href="mailto:legal@hscontadores.co"
+                  onClick={() => setView('home')}
                   className="w-full sm:w-auto"
                 >
-                  Enviar Email
+                  Volver al Inicio
                 </Button>
               </div>
             </div>

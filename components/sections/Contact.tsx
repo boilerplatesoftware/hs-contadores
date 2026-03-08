@@ -12,7 +12,7 @@ import {
   Globe,
   ArrowUpRight
 } from 'lucide-react';
-import { SPRING_TRANSITION } from '../../constants';
+import { SPRING_TRANSITION, WHATSAPP_LINK, WHATSAPP_CONFIG } from '../../constants';
 
 const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
         {[
           { icon: <Phone className="text-[#D4AF37]" />, title: "Línea Directa", detail: "+57 (300) 888-9000", sub: "Atención Senior 8am - 6pm" },
-          { icon: <Mail className="text-[#D4AF37]" />, title: "Email Institucional", detail: "contacto@hscontadores.co", sub: "Respuesta garantizada < 24h" },
+          { icon: <Phone className="text-[#D4AF37]" />, title: "WhatsApp Senior", detail: `+${WHATSAPP_CONFIG.number}`, sub: "Conexión inmediata HS" },
           { icon: <Clock className="text-[#D4AF37]" />, title: "Soporte 24/7", detail: "Soporte Inmediato", sub: "Exclusivo para socios Gold" },
         ].map((item, i) => (
           <motion.div
@@ -78,15 +78,9 @@ const Contact: React.FC = () => {
                     onSubmit={handleSubmit}
                     className="space-y-8"
                   >
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="group space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Nombre de la Compañía</label>
-                        <input required type="text" placeholder="Corporativo S.A." className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-lg font-medium" />
-                      </div>
-                      <div className="group space-y-2">
-                        <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Email Corporativo</label>
-                        <input required type="email" placeholder="directivo@empresa.com" className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium" />
-                      </div>
+                    <div className="group space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Nombre de la Compañía</label>
+                      <input required type="text" placeholder="Corporativo S.A." className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-lg font-medium" />
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
@@ -156,7 +150,7 @@ const Contact: React.FC = () => {
                     </div>
                     <h3 className="text-3xl font-extrabold mb-4 tracking-tight">Protocolo Iniciado</h3>
                     <p className="text-slate-500 text-lg font-light max-w-sm mb-10">
-                      Su requerimiento ha sido asignado a nuestra Unidad de Estrategia Corporativa. Recibirá una respuesta formal en breve.
+                      Su requerimiento ha sido asignado a nuestra Unidad de Estrategia Corporativa. Un consultor senior lo contactará por WhatsApp en breve.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
@@ -216,7 +210,7 @@ const Contact: React.FC = () => {
             <div className="relative z-10 pt-16 border-t border-[#D4AF37]/20">
               <div className="p-6 bg-[#D4AF37]/10 rounded-2xl border border-[#D4AF37]/30 backdrop-blur-md">
                 <p className="text-xs font-black uppercase tracking-widest text-[#D4AF37] mb-2">Canal de Emergencia</p>
-                <p className="text-white font-bold mb-1">contacto@hscontadores.co</p>
+                <p className="text-white font-bold mb-1">WhatsApp Senior HS</p>
                 <p className="text-xs text-white/50 font-light">Exclusivo para situaciones de auditoría inmediata o crisis tributaria.</p>
               </div>
             </div>

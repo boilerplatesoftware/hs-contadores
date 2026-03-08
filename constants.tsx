@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { 
-  ShieldCheck, 
-  FileText, 
-  Users, 
-  TrendingUp, 
-  Gavel, 
-  Briefcase 
+import {
+  ShieldCheck,
+  FileText,
+  Users,
+  TrendingUp,
+  Gavel,
+  Briefcase
 } from 'lucide-react';
 import { NavItem, ServiceItem, PartnerItem, ProjectItem } from './types';
 
@@ -15,6 +15,8 @@ export const WHATSAPP_CONFIG = {
   agentName: 'Soporte Senior HS',
   initialMessage: 'Hola, estoy interesado en una consultoría corporativa.'
 };
+
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_CONFIG.number}?text=${encodeURIComponent(WHATSAPP_CONFIG.initialMessage)}`;
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Inicio', href: '#inicio' },

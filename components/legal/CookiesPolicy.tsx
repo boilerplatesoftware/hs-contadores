@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, Settings, Shield, Eye, Database, AlertCircle, CheckCircle2, FileText, ArrowLeft, Lock, BarChart3, Target, ChevronDown } from 'lucide-react';
-import { SPRING_TRANSITION } from '../../constants';
+import { SPRING_TRANSITION, WHATSAPP_LINK } from '../../constants';
 import Button from '../ui/Button';
 import SectionHeader from '../ui/SectionHeader';
 import IconBox from '../ui/IconBox';
@@ -363,8 +363,8 @@ Información de Contacto:
 HS Contadores Públicos S.A.S.
   Dirección: Carrera 23 #19 - 20, Oficina 301, Centro Comercial, Manizales, Caldas, Colombia
 Teléfono: +57(300) 888 - 9000
-Email: cookies @hscontadores.co
-Email General: contacto @hscontadores.co
+Canal Corporativo: WhatsApp Senior
+Canal General: WhatsApp Institucional HS
 
 Horario de Atención:
 Lunes a Viernes: 8:00 AM - 6:00 PM
@@ -520,24 +520,18 @@ Responderemos a su consulta en un plazo máximo de 10 días hábiles.`
                 <Button
                   variant="primary"
                   size="md"
-                  href="mailto:cookies@hscontadores.co"
+                  href={WHATSAPP_LINK}
                   className="w-full sm:w-auto"
                 >
-                  Contactar sobre Cookies
+                  Contactar por WhatsApp
                 </Button>
                 <Button
                   variant="secondary"
                   size="md"
-                  href="#"
-                  onClick={() => {
-                    window.location.hash = '';
-                    setTimeout(() => {
-                      window.location.href = window.location.origin + window.location.pathname + '#contacto';
-                    }, 100);
-                  }}
+                  onClick={() => setView('home')}
                   className="w-full sm:w-auto"
                 >
-                  Gestionar Preferencias
+                  Volver al Inicio
                 </Button>
               </div>
             </div>

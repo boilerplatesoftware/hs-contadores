@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Lock, Eye, Database, UserCheck, AlertTriangle, FileText, ArrowLeft, CheckCircle2, Users, ChevronDown } from 'lucide-react';
-import { SPRING_TRANSITION } from '../../constants';
+import { SPRING_TRANSITION, WHATSAPP_LINK } from '../../constants';
 import Button from '../ui/Button';
 import SectionHeader from '../ui/SectionHeader';
 import IconBox from '../ui/IconBox';
@@ -43,10 +43,10 @@ HS Contadores Públicos S.A.S.
 NIT: [Número de Identificación Tributaria]
 Dirección: Carrera 23 #19-20, Oficina 301, Centro Comercial, Manizales, Caldas, Colombia
 Teléfono: +57 (300) 888-9000
-Email: privacidad@hscontadores.co
+Canal Corporativo: WhatsApp Senior HS
 
 Representante Legal: [Nombre del Representante Legal]
-Email del Representante Legal: legal@hscontadores.co`
+Comunicación: Canal Institucional WhatsApp`
     },
     {
       id: '3',
@@ -226,7 +226,8 @@ Al finalizar los períodos de conservación, los datos serán eliminados de form
    • Solicitar la entrega de sus datos personales en formato estructurado y de uso común
 
 Para ejercer estos derechos, puede contactarnos a través de:
-Email: privacidad@hscontadores.co
+Canal Corporativo: WhatsApp Senior
+Canal Corporativo: WhatsApp Senior
 Dirección: Carrera 23 #19-20, Oficina 301, Manizales, Caldas, Colombia
 
 Responderemos a su solicitud en un plazo máximo de 10 días hábiles.`
@@ -263,7 +264,7 @@ Si tenemos conocimiento de que hemos recopilado datos personales de un menor sin
 
 Le notificaremos sobre cambios materiales mediante:
 • Publicación destacada en nuestro sitio web
-• Notificación por correo electrónico (si tenemos su dirección)
+• Notificación por canales corporativos preferentes
 • Aviso en nuestros canales de comunicación oficiales
 
 Se recomienda revisar periódicamente esta política para estar informado sobre cómo protegemos su información. La fecha de la última actualización se indica al inicio de este documento.`
@@ -278,7 +279,6 @@ Superintendencia de Industria y Comercio (SIC)
 Dirección: Carrera 13 #27-00, Bogotá D.C., Colombia
 Teléfono: (57-1) 592-0400
 Sitio web: www.sic.gov.co
-Email: contacto@sic.gov.co
 
 Antes de presentar una queja ante la SIC, le recomendamos contactarnos primero para intentar resolver cualquier inquietud de manera directa.`
     }
@@ -410,24 +410,18 @@ Antes de presentar una queja ante la SIC, le recomendamos contactarnos primero p
                 <Button
                   variant="primary"
                   size="md"
-                  href="mailto:privacidad@hscontadores.co"
+                  href={WHATSAPP_LINK}
                   className="w-full sm:w-auto"
                 >
-                  Contactar Equipo de Privacidad
+                  Contactar por WhatsApp
                 </Button>
                 <Button
                   variant="secondary"
                   size="md"
-                  href="#"
-                  onClick={() => {
-                    window.location.hash = '';
-                    setTimeout(() => {
-                      window.location.href = window.location.origin + window.location.pathname + '#contacto';
-                    }, 100);
-                  }}
+                  onClick={() => setView('home')}
                   className="w-full sm:w-auto"
                 >
-                  Solicitar Acceso a Datos
+                  Volver al Inicio
                 </Button>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, AlertTriangle, CheckCircle2, FileText, Lock, Users, Eye, Scale, ArrowLeft, Target, TrendingUp, Building2, ChevronDown } from 'lucide-react';
-import { SPRING_TRANSITION } from '../../constants';
+import { SPRING_TRANSITION, WHATSAPP_LINK } from '../../constants';
 import Button from '../ui/Button';
 import IconBox from '../ui/IconBox';
 
@@ -480,19 +480,18 @@ Nuestro objetivo es mantenernos a la vanguardia en prevención de LA/FT y cumpli
                 <Button
                   variant="primary"
                   size="md"
-                  href="#"
-                  onClick={() => setView('home')}
+                  href={WHATSAPP_LINK}
                   className="w-full sm:w-auto"
                 >
-                  Solicitar Consultoría SARLAFT
+                  Contactar por WhatsApp
                 </Button>
                 <Button
                   variant="secondary"
                   size="md"
-                  href="mailto:sarlaft@hscontadores.co"
+                  onClick={() => setView('home')}
                   className="w-full sm:w-auto"
                 >
-                  Contactar Equipo Especializado
+                  Volver al Inicio
                 </Button>
               </div>
             </div>
