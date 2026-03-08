@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Linkedin, Twitter, Facebook, ArrowUp } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { NAV_ITEMS } from '../../constants';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -40,13 +40,13 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 sm:space-y-4">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
-                  <a 
-                    href={item.href} 
+                  <a
+                    href={item.href}
                     className="text-white/70 hover:text-[#D4AF37] transition-colors flex items-center group"
                   >
                     <span className="w-0 group-hover:w-2 h-px bg-[#D4AF37] mr-0 group-hover:mr-2 transition-all"></span>
-                    {item.label === 'Nosotros' ? 'Sobre Nosotros' : 
-                     item.label === 'Socios' ? 'Nuestros Socios' : item.label}
+                    {item.label === 'Nosotros' ? 'Sobre Nosotros' :
+                      item.label === 'Socios' ? 'Nuestros Socios' : item.label}
                   </a>
                 </li>
               ))}
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             <p className="text-white/70 mb-4 sm:mb-6 font-light text-sm sm:text-base">Suscríbase para recibir actualizaciones financieras críticas.</p>
             <div className="flex space-x-2">
               <input type="email" placeholder="email@empresa.com" className="flex-grow px-3 sm:px-4 py-2 sm:py-3 bg-black border border-[#D4AF37]/30 rounded-lg sm:rounded-xl outline-none text-xs sm:text-sm text-white placeholder-white/30 focus:border-[#D4AF37]" />
-              <button 
+              <button
                 onClick={scrollToTop}
                 className="p-2 sm:p-3 bg-[#D4AF37] text-black rounded-lg sm:rounded-xl hover:bg-[#FFD700] transition-colors shadow-lg shadow-[#D4AF37]/20"
                 title="Volver arriba"
@@ -84,9 +84,9 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} HS Contadores Públicos S.A.S. Todos los derechos reservados.
           </p>
           <div className="flex items-center space-x-1 grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100 cursor-default">
-             <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-white/50">Powered by</span>
-             <span className="text-xs font-black tracking-tighter text-[#D4AF37]">@BOILERPLATE</span>
-             <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-white/50 ml-2">Arquitectura Digital</span>
+            <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-white/50">Powered by</span>
+            <span className="text-xs font-black tracking-tighter text-[#D4AF37]">@BOILERPLATE</span>
+            <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-white/50 ml-2">Arquitectura Digital</span>
           </div>
         </div>
       </div>

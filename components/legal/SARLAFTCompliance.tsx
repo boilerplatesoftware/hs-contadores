@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, AlertTriangle, CheckCircle2, FileText, Lock, Users, Eye, Scale, ArrowLeft, Target, TrendingUp, Building2 } from 'lucide-react';
-import { SPRING_TRANSITION } from '../constants';
-import Button from './ui/Button';
-import IconBox from './ui/IconBox';
+import { SPRING_TRANSITION } from '../../constants';
+import Button from '../ui/Button';
+import IconBox from '../ui/IconBox';
 
 const SARLAFTCompliance: React.FC = () => {
   const scrollToTop = () => {
@@ -351,7 +351,7 @@ Nuestro objetivo es mantenernos a la vanguardia en prevención de LA/FT y cumpli
               <ArrowLeft size={16} />
               <span>Volver al Inicio</span>
             </motion.a>
-            
+
             <div className="flex items-center space-x-4 mb-6 sm:mb-8">
               <IconBox icon={Shield} variant="gold" size="lg" />
               <div>
@@ -369,7 +369,7 @@ Nuestro objetivo es mantenernos a la vanguardia en prevención de LA/FT y cumpli
 
             <div className="bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-xl sm:rounded-2xl p-4 sm:p-6">
               <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-4">
-                HS Contadores Públicos S.A.S. se compromete con la prevención del lavado de activos y la financiación del terrorismo, 
+                HS Contadores Públicos S.A.S. se compromete con la prevención del lavado de activos y la financiación del terrorismo,
                 implementando las mejores prácticas de cumplimiento normativo y ofreciendo servicios especializados de consultoría SARLAFT.
               </p>
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -442,7 +442,7 @@ Nuestro objetivo es mantenernos a la vanguardia en prevención de LA/FT y cumpli
                 ¿Necesita Asesoría en Cumplimiento SARLAFT?
               </h3>
               <p className="text-white/70 mb-6 sm:mb-8 text-sm sm:text-base">
-                Nuestro equipo especializado en cumplimiento normativo está disponible para ayudarle a implementar o mejorar 
+                Nuestro equipo especializado en cumplimiento normativo está disponible para ayudarle a implementar o mejorar
                 su sistema SARLAFT y cumplir con todas las obligaciones regulatorias.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">

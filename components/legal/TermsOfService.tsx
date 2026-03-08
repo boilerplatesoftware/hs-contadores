@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Shield, Scale, AlertCircle, CheckCircle2, ArrowLeft } from 'lucide-react';
-import { SPRING_TRANSITION } from '../constants';
-import Button from './ui/Button';
-import SectionHeader from './ui/SectionHeader';
-import IconBox from './ui/IconBox';
+import { SPRING_TRANSITION } from '../../constants';
+import Button from '../ui/Button';
+import SectionHeader from '../ui/SectionHeader';
+import IconBox from '../ui/IconBox';
 
 const TermsOfService: React.FC = () => {
   const scrollToTop = () => {
@@ -160,7 +160,7 @@ Se recomienda revisar periódicamente estos términos para estar informado de cu
               <ArrowLeft size={16} />
               <span>Volver al Inicio</span>
             </motion.a>
-            
+
             <div className="flex items-center space-x-4 mb-6 sm:mb-8">
               <IconBox icon={FileText} variant="gold" size="lg" />
               <div>
@@ -175,7 +175,7 @@ Se recomienda revisar periódicamente estos términos para estar informado de cu
 
             <div className="bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-xl sm:rounded-2xl p-4 sm:p-6">
               <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-                Estos términos rigen el uso de los servicios profesionales proporcionados por HS Contadores Públicos S.A.S. 
+                Estos términos rigen el uso de los servicios profesionales proporcionados por HS Contadores Públicos S.A.S.
                 Le recomendamos leer cuidadosamente estos términos antes de utilizar nuestros servicios.
               </p>
             </div>

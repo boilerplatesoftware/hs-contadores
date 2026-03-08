@@ -1,18 +1,18 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Send, 
-  CheckCircle2, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
+import {
+  Send,
+  CheckCircle2,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ShieldCheck,
   Globe,
   ArrowUpRight
 } from 'lucide-react';
-import { SPRING_TRANSITION } from '../constants';
+import { SPRING_TRANSITION } from '../../constants';
 
 const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
           { icon: <Mail className="text-[#D4AF37]" />, title: "Email Institucional", detail: "contacto@hscontadores.co", sub: "Respuesta garantizada < 24h" },
           { icon: <Clock className="text-[#D4AF37]" />, title: "Soporte 24/7", detail: "Soporte Inmediato", sub: "Exclusivo para socios Gold" },
         ].map((item, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
 
       <div className="max-w-7xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-[#D4AF37]/10 overflow-hidden border border-[#D4AF37]/10">
         <div className="grid lg:grid-cols-5">
-          
+
           {/* Form Side (60%) */}
           <div className="lg:col-span-3 p-6 sm:p-8 md:p-10 lg:p-20 border-b lg:border-b-0 lg:border-r border-slate-50">
             <div className="max-w-xl">
@@ -70,12 +70,12 @@ const Contact: React.FC = () => {
 
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
-                  <motion.form 
+                  <motion.form
                     key="enterprise-form"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    onSubmit={handleSubmit} 
+                    onSubmit={handleSubmit}
                     className="space-y-8"
                   >
                     <div className="grid md:grid-cols-2 gap-8">
@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
                       <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Descripción del Requerimiento Estratégico</label>
                       <textarea rows={4} placeholder="¿Qué desafíos financieros busca resolver?" className="w-full p-3 sm:p-4 bg-slate-50 border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D4AF37] transition-all outline-none resize-none text-sm sm:text-base text-slate-700" />
                     </div>
-                    
+
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -145,7 +145,7 @@ const Contact: React.FC = () => {
                     </div>
                   </motion.form>
                 ) : (
-                  <motion.div 
+                  <motion.div
                     key="enterprise-success"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -158,7 +158,7 @@ const Contact: React.FC = () => {
                     <p className="text-slate-500 text-lg font-light max-w-sm mb-10">
                       Su requerimiento ha sido asignado a nuestra Unidad de Estrategia Corporativa. Recibirá una respuesta formal en breve.
                     </p>
-                    <button 
+                    <button
                       onClick={() => setIsSubmitted(false)}
                       className="px-8 py-3 bg-black border border-[#D4AF37]/30 text-[#D4AF37] rounded-xl font-bold hover:bg-[#D4AF37] hover:text-black transition-colors"
                     >
@@ -173,13 +173,13 @@ const Contact: React.FC = () => {
           {/* Side Info Panel (40%) */}
           <div className="lg:col-span-2 bg-black p-6 sm:p-8 md:p-10 lg:p-20 text-white flex flex-col justify-between relative overflow-hidden border-t lg:border-t-0 lg:border-l border-[#D4AF37]/10">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[100px] -mr-32 -mt-32" />
-            
+
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-12 flex items-center space-x-3">
                 <span className="w-8 h-px bg-[#D4AF37]"></span>
                 <span>Reach Global</span>
               </h3>
-              
+
               <div className="space-y-12">
                 <div>
                   <div className="flex items-center space-x-4 mb-4">

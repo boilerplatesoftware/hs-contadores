@@ -1,39 +1,39 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Search, 
-  Compass, 
-  Settings, 
+import {
+  Search,
+  Compass,
+  Settings,
   BarChart3,
   ShieldAlert
 } from 'lucide-react';
-import { SERVICES, SPRING_TRANSITION } from '../constants';
-import SectionHeader from './ui/SectionHeader';
-import ServiceCard from './ui/ServiceCard';
+import { SERVICES, SPRING_TRANSITION } from '../../constants';
+import SectionHeader from '../ui/SectionHeader';
+import ServiceCard from '../ui/ServiceCard';
 
 const methodology = [
-  { 
-    id: '01', 
-    title: 'Análisis & Diagnóstico', 
+  {
+    id: '01',
+    title: 'Análisis & Diagnóstico',
     desc: 'Auditamos el estado actual para identificar brechas y oportunidades.',
     icon: <Search className="w-6 h-6" />
   },
-  { 
-    id: '02', 
-    title: 'Diseño Estratégico', 
+  {
+    id: '02',
+    title: 'Diseño Estratégico',
     desc: 'Construimos una arquitectura financiera a la medida de su visión.',
     icon: <Compass className="w-6 h-6" />
   },
-  { 
-    id: '03', 
-    title: 'Ejecución Ágil', 
+  {
+    id: '03',
+    title: 'Ejecución Ágil',
     desc: 'Implementamos soluciones con mínima fricción operativa.',
     icon: <Settings className="w-6 h-6" />
   },
-  { 
-    id: '04', 
-    title: 'Optimización Continua', 
+  {
+    id: '04',
+    title: 'Optimización Continua',
     desc: 'Monitoreamos y refinamos para maximizar el ROI.',
     icon: <BarChart3 className="w-6 h-6" />
   }
@@ -81,14 +81,14 @@ const Services: React.FC = () => {
               <span className="text-[#D4AF37] font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-3 sm:mb-4 block">Cómo Operamos</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 md:mb-8 tracking-tight">Metodología <span className="text-[#D4AF37] font-serif-premium">Impact Gold</span></h2>
               <p className="text-white/70 text-sm sm:text-base md:text-lg font-light mb-8 sm:mb-10 md:mb-12 leading-relaxed">
-                Hemos sistematizado el éxito. Nuestro proceso garantiza resultados consistentes, 
+                Hemos sistematizado el éxito. Nuestro proceso garantiza resultados consistentes,
                 auditable y escalables para cada uno de nuestros socios corporativos.
               </p>
-              
+
               <div className="space-y-8">
                 {methodology.map((step) => (
-                  <motion.div 
-                    key={step.id} 
+                  <motion.div
+                    key={step.id}
                     className="flex space-x-6 group"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Lock, Eye, Database, UserCheck, AlertTriangle, FileText, ArrowLeft, CheckCircle2, Users } from 'lucide-react';
-import { SPRING_TRANSITION } from '../constants';
-import Button from './ui/Button';
-import IconBox from './ui/IconBox';
+import { SPRING_TRANSITION } from '../../constants';
+import Button from '../ui/Button';
+import SectionHeader from '../ui/SectionHeader';
+import IconBox from '../ui/IconBox';
 
 const PrivacyPolicy: React.FC = () => {
   const scrollToTop = () => {
@@ -294,7 +295,7 @@ Antes de presentar una queja ante la SIC, le recomendamos contactarnos primero p
               <ArrowLeft size={16} />
               <span>Volver al Inicio</span>
             </motion.a>
-            
+
             <div className="flex items-center space-x-4 mb-6 sm:mb-8">
               <IconBox icon={Shield} variant="gold" size="lg" />
               <div>
@@ -309,7 +310,7 @@ Antes de presentar una queja ante la SIC, le recomendamos contactarnos primero p
 
             <div className="bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-xl sm:rounded-2xl p-4 sm:p-6">
               <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-4">
-                Esta política describe cómo HS Contadores Públicos S.A.S. recopila, utiliza y protege su información personal 
+                Esta política describe cómo HS Contadores Públicos S.A.S. recopila, utiliza y protege su información personal
                 de acuerdo con la Ley 1581 de 2012 de Protección de Datos Personales de Colombia.
               </p>
               <div className="flex items-center space-x-2 text-[#D4AF37] text-xs sm:text-sm">

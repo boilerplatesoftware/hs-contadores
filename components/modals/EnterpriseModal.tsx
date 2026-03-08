@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle, CheckCircle2, Clock, Shield, TrendingUp, Users, ArrowRight } from 'lucide-react';
-import { WHATSAPP_CONFIG, SPRING_TRANSITION } from '../constants';
+import { WHATSAPP_CONFIG, SPRING_TRANSITION } from '../../constants';
 
 interface EnterpriseModalProps {
   isOpen: boolean;
@@ -70,7 +70,7 @@ const EnterpriseModal: React.FC<EnterpriseModalProps> = ({ isOpen, onClose }) =>
                 >
                   <X size={24} />
                 </button>
-                
+
                 <div className="pr-10">
                   <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full mb-3">
                     <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>

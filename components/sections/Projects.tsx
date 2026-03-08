@@ -1,19 +1,19 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PROJECTS, SPRING_TRANSITION } from '../constants';
-import EnterpriseModal from './EnterpriseModal';
-import SectionHeader from './ui/SectionHeader';
-import ProjectCard from './ui/ProjectCard';
-import Button from './ui/Button';
+import { PROJECTS, SPRING_TRANSITION } from '../../constants';
+import EnterpriseModal from '../modals/EnterpriseModal';
+import SectionHeader from '../ui/SectionHeader';
+import ProjectCard from '../ui/ProjectCard';
+import Button from '../ui/Button';
 
 const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Todos');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const categories = ['Todos', 'Auditoría', 'Fiscal', 'Legal'];
 
-  const filteredProjects = activeTab === 'Todos' 
-    ? PROJECTS 
+  const filteredProjects = activeTab === 'Todos'
+    ? PROJECTS
     : PROJECTS.filter(p => p.category.includes(activeTab));
 
   return (
@@ -31,18 +31,17 @@ const Projects: React.FC = () => {
             className="text-black"
           />
         </div>
-        
+
         {/* Category Filter */}
         <div className="flex bg-slate-100 p-1 sm:p-1.5 rounded-xl sm:rounded-2xl overflow-x-auto">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveTab(cat)}
-              className={`px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap ${
-                activeTab === cat 
-                  ? 'bg-[#D4AF37] text-black shadow-sm' 
+              className={`px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap ${activeTab === cat
+                  ? 'bg-[#D4AF37] text-black shadow-sm'
                   : 'text-slate-500 hover:text-[#D4AF37]'
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -69,7 +68,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* CTA Section */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -79,7 +78,7 @@ const Projects: React.FC = () => {
         <div className="relative z-10">
           <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4 sm:mb-6 tracking-tight text-black px-4">¿Listo para ser nuestro próximo <span className="text-[#D4AF37] font-serif-premium">caso de éxito?</span></h3>
           <p className="text-slate-600 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed px-4">
-            Permítanos aplicar nuestra metodología de arquitectura financiera para optimizar 
+            Permítanos aplicar nuestra metodología de arquitectura financiera para optimizar
             sus recursos y blindar su operación corporativa.
           </p>
           <div className="flex justify-center px-4">

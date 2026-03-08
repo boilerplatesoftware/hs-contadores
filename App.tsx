@@ -1,20 +1,20 @@
 
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import Partners from './components/Partners';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Services from './components/sections/Services';
+import Projects from './components/sections/Projects';
+import Partners from './components/sections/Partners';
+import Contact from './components/sections/Contact';
+import Footer from './components/layout/Footer';
+import WhatsAppFloat from './components/common/WhatsAppFloat';
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-[#D4AF37]/20 selection:text-[#000000]">
       <Navbar />
-      
+
       <main className="flex-grow">
         <section id="inicio">
           <Hero />
@@ -23,7 +23,7 @@ const App: React.FC = () => {
         <section id="nosotros">
           <About />
         </section>
-        
+
         <section id="servicios" className="py-24 bg-[#000000]">
           <Services />
         </section>

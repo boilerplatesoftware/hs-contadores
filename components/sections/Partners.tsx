@@ -2,10 +2,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Globe, Star, ArrowUpRight } from 'lucide-react';
-import { PARTNERS, SPRING_TRANSITION } from '../constants';
-import SectionHeader from './ui/SectionHeader';
-import PartnerCard from './ui/PartnerCard';
-import IconBox from './ui/IconBox';
+import { PARTNERS, SPRING_TRANSITION } from '../../constants';
+import SectionHeader from '../ui/SectionHeader';
+import PartnerCard from '../ui/PartnerCard';
+import IconBox from '../ui/IconBox';
 
 const Partners: React.FC = () => {
   return (
@@ -40,7 +40,7 @@ const Partners: React.FC = () => {
       </div>
 
       {/* Alliance Statistics */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         className="mt-16 sm:mt-24 md:mt-32 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 py-8 sm:py-12 md:py-16 border-y border-[#D4AF37]/10"
@@ -53,9 +53,9 @@ const Partners: React.FC = () => {
         ].map((stat, i) => (
           <div key={i} className="text-center group">
             <div className="inline-flex items-center justify-center mb-3 sm:mb-4">
-              <IconBox 
-                icon={stat.icon} 
-                variant="default" 
+              <IconBox
+                icon={stat.icon}
+                variant="default"
                 size="sm"
                 className="group-hover:bg-[#D4AF37] group-hover:text-black transition-all"
               />

@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, User } from 'lucide-react';
-import { WHATSAPP_CONFIG, SPRING_TRANSITION } from '../constants';
+import { WHATSAPP_CONFIG, SPRING_TRANSITION } from '../../constants';
 
 const WhatsAppFloat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,13 +32,13 @@ const WhatsAppFloat: React.FC = () => {
           >
             {/* Chat Header */}
             <div className="bg-black border-b border-[#D4AF37]/20 p-4 sm:p-6 text-white relative">
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/50 hover:text-white transition-colors"
               >
                 <X size={18} className="sm:w-5 sm:h-5" />
               </button>
-              
+
               <div className="flex items-center space-x-2 sm:space-x-3 pr-8">
                 <div className="relative">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-xl sm:rounded-2xl flex items-center justify-center">
@@ -88,9 +87,8 @@ const WhatsAppFloat: React.FC = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl sm:rounded-[1.5rem] shadow-2xl flex items-center justify-center transition-all duration-500 ${
-          isOpen ? 'bg-black border border-[#D4AF37]/30 rotate-90' : 'bg-[#D4AF37] hover:bg-[#FFD700]'
-        } ${isOpen ? 'text-[#D4AF37]' : 'text-black'}`}
+        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl sm:rounded-[1.5rem] shadow-2xl flex items-center justify-center transition-all duration-500 ${isOpen ? 'bg-black border border-[#D4AF37]/30 rotate-90' : 'bg-[#D4AF37] hover:bg-[#FFD700]'
+          } ${isOpen ? 'text-[#D4AF37]' : 'text-black'}`}
       >
         {isOpen ? <X size={24} className="sm:w-7 sm:h-7" /> : <MessageCircle size={24} className="sm:w-7 sm:h-7" />}
       </motion.button>

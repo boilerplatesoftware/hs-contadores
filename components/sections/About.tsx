@@ -2,10 +2,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Award, Globe, Shield, Zap } from 'lucide-react';
-import { SPRING_TRANSITION } from '../constants';
-import StatCard from './ui/StatCard';
-import MissionVisionCard from './ui/MissionVisionCard';
-import ValueCard from './ui/ValueCard';
+import { SPRING_TRANSITION } from '../../constants';
+import StatCard from '../ui/StatCard';
+import MissionVisionCard from '../ui/MissionVisionCard';
+import ValueCard from '../ui/ValueCard';
 
 const stats = [
   { label: 'Años de Trayectoria', value: '15+' },
@@ -50,13 +50,13 @@ const About: React.FC = () => {
             </h2>
             <div className="space-y-4 sm:space-y-6 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-light">
               <p>
-                Fundada con la premisa de que la contabilidad es el lenguaje del éxito empresarial, 
-                HS Contadores ha evolucionado para convertirse en una firma de consultoría 
+                Fundada con la premisa de que la contabilidad es el lenguaje del éxito empresarial,
+                HS Contadores ha evolucionado para convertirse en una firma de consultoría
                 arquitectónica financiera de primer nivel.
               </p>
               <p>
-                No solo registramos el pasado; diseñamos su futuro financiero. Nuestro enfoque 
-                Enterprise Gold Tier garantiza que cada transacción sea una oportunidad de optimización 
+                No solo registramos el pasado; diseñamos su futuro financiero. Nuestro enfoque
+                Enterprise Gold Tier garantiza que cada transacción sea una oportunidad de optimización
                 y cada reporte sea un mapa hacia la rentabilidad.
               </p>
             </div>
@@ -84,13 +84,13 @@ const About: React.FC = () => {
           >
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10" />
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" 
-                alt="Corporate building" 
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
+                alt="Corporate building"
                 className="w-full h-[550px] object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#004085]/40 to-transparent" />
-              
+
               {/* Floating Badge */}
               <div className="absolute bottom-10 -left-6 glass p-6 rounded-2xl shadow-xl border border-white/40 max-w-[240px]">
                 <div className="flex items-center space-x-3 mb-2">
@@ -122,7 +122,7 @@ const About: React.FC = () => {
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-4">Nuestros Pilares</h3>
               <p className="text-white/70 text-sm sm:text-base md:text-lg font-light px-4">Fundamentos que rigen cada interacción con nuestros socios comerciales.</p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
               {values.map((value, idx) => (
                 <ValueCard

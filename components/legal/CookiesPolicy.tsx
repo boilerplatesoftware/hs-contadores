@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Cookie, Settings, Shield, Eye, Database, AlertCircle, CheckCircle2, FileText, ArrowLeft, Lock, BarChart3, Target } from 'lucide-react';
-import { SPRING_TRANSITION } from '../constants';
-import Button from './ui/Button';
-import IconBox from './ui/IconBox';
+import { SPRING_TRANSITION } from '../../constants';
+import Button from '../ui/Button';
+import SectionHeader from '../ui/SectionHeader';
+import IconBox from '../ui/IconBox';
 
 const CookiesPolicy: React.FC = () => {
   const scrollToTop = () => {
@@ -15,9 +16,9 @@ const CookiesPolicy: React.FC = () => {
       id: '1',
       title: '¿Qué son las Cookies?',
       icon: Cookie,
-      content: `Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (computadora, tablet o móvil) cuando visita un sitio web. Estas cookies permiten que el sitio web recuerde sus acciones y preferencias durante un período de tiempo, por lo que no tiene que volver a configurarlas cada vez que regresa al sitio o navega de una página a otra.
+      content: `Las cookies son pequeños archivos de texto que se almacenan en su dispositivo(computadora, tablet o móvil) cuando visita un sitio web.Estas cookies permiten que el sitio web recuerde sus acciones y preferencias durante un período de tiempo, por lo que no tiene que volver a configurarlas cada vez que regresa al sitio o navega de una página a otra.
 
-Las cookies son ampliamente utilizadas para hacer que los sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio. No dañan su dispositivo ni contienen virus.
+Las cookies son ampliamente utilizadas para hacer que los sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio.No dañan su dispositivo ni contienen virus.
 
 En HS Contadores Públicos S.A.S., utilizamos cookies para mejorar su experiencia de navegación, analizar el uso del sitio web y personalizar el contenido según sus preferencias.`
     },
@@ -27,7 +28,7 @@ En HS Contadores Públicos S.A.S., utilizamos cookies para mejorar su experienci
       icon: Settings,
       content: `Utilizamos diferentes tipos de cookies según su finalidad:
 
-Cookies Esenciales (Necesarias):
+Cookies Esenciales(Necesarias):
 • Son estrictamente necesarias para el funcionamiento del sitio web
 • Permiten la navegación básica y el uso de funciones esenciales
 • No pueden desactivarse en nuestros sistemas
@@ -71,7 +72,7 @@ Cookies de Terceros:
 Cookies de Sesión:
 • Nombre: session_id
 • Propósito: Mantener su sesión activa mientras navega
-• Duración: Sesión (se eliminan al cerrar el navegador)
+• Duración: Sesión(se eliminan al cerrar el navegador)
 • Tipo: Esencial
 
 Cookies de Preferencias:
@@ -80,10 +81,10 @@ Cookies de Preferencias:
 • Duración: 1 año
 • Tipo: Funcionalidad
 
-Cookies de Análisis (Google Analytics):
+Cookies de Análisis(Google Analytics):
 • Nombre: _ga, _gid, _gat
 • Propósito: Analizar el uso del sitio web y generar estadísticas
-• Duración: 2 años (_ga), 24 horas (_gid), 1 minuto (_gat)
+• Duración: 2 años(_ga), 24 horas(_gid), 1 minuto(_gat)
 • Tipo: Rendimiento
 • Proveedor: Google LLC
 
@@ -99,7 +100,7 @@ Cookies de Consentimiento:
 • Duración: 1 año
 • Tipo: Esencial
 
-Esta lista puede actualizarse periódicamente. Le notificaremos sobre cambios significativos.`
+Esta lista puede actualizarse periódicamente.Le notificaremos sobre cambios significativos.`
     },
     {
       id: '4',
@@ -141,7 +142,7 @@ Cumplimiento Legal:
       id: '5',
       title: 'Gestión de Cookies',
       icon: Settings,
-      content: `Usted tiene control total sobre las cookies. Puede gestionarlas de las siguientes maneras:
+      content: `Usted tiene control total sobre las cookies.Puede gestionarlas de las siguientes maneras:
 
 A través de Nuestro Sitio Web:
 • Utilice nuestro banner de consentimiento de cookies
@@ -197,7 +198,7 @@ Servicios de Publicidad:
 • Si utilizamos servicios de publicidad, pueden establecer cookies
 • Estas cookies están sujetas a las políticas de los proveedores
 
-No tenemos control sobre las cookies establecidas por terceros. Le recomendamos revisar las políticas de privacidad y cookies de estos terceros para entender cómo utilizan sus datos.
+No tenemos control sobre las cookies establecidas por terceros.Le recomendamos revisar las políticas de privacidad y cookies de estos terceros para entender cómo utilizan sus datos.
 
 Puede optar por no recibir cookies de terceros configurando su navegador para bloquearlas.`
     },
@@ -306,7 +307,7 @@ Notificación de Cambios:
 Le notificaremos sobre cambios materiales mediante:
 • Publicación destacada en nuestro sitio web
 • Actualización de la fecha de "Última actualización"
-• Notificación por correo electrónico (si tenemos su dirección)
+• Notificación por correo electrónico(si tenemos su dirección)
 • Banner o aviso en el sitio web
 
 Revisión Periódica:
@@ -326,18 +327,18 @@ Si tiene preguntas sobre cambios en esta política, puede contactarnos en cualqu
 Normativa Colombiana:
 • Ley 1581 de 2012 - Protección de Datos Personales
 • Decreto 1377 de 2013 - Reglamentación de la Ley 1581
-• Resoluciones de la Superintendencia de Industria y Comercio (SIC)
+• Resoluciones de la Superintendencia de Industria y Comercio(SIC)
 
 Normativa Internacional:
-• Directiva ePrivacy (2002/58/CE) - Directiva sobre privacidad electrónica
-• Reglamento General de Protección de Datos (RGPD) - Para usuarios de la UE
+• Directiva ePrivacy(2002 / 58 / CE) - Directiva sobre privacidad electrónica
+• Reglamento General de Protección de Datos(RGPD) - Para usuarios de la UE
 • Recomendaciones del Grupo de Trabajo del Artículo 29
 
 Cumplimiento:
 
 Nos comprometemos a cumplir con todas las normativas aplicables relacionadas con el uso de cookies y la protección de datos personales.
 
-Si tiene inquietudes sobre nuestro cumplimiento, puede contactarnos o presentar una queja ante la Superintendencia de Industria y Comercio (SIC).`
+Si tiene inquietudes sobre nuestro cumplimiento, puede contactarnos o presentar una queja ante la Superintendencia de Industria y Comercio(SIC).`
     },
     {
       id: '12',
@@ -348,10 +349,10 @@ Si tiene inquietudes sobre nuestro cumplimiento, puede contactarnos o presentar 
 Información de Contacto:
 
 HS Contadores Públicos S.A.S.
-Dirección: Carrera 23 #19-20, Oficina 301, Centro Comercial, Manizales, Caldas, Colombia
-Teléfono: +57 (300) 888-9000
-Email: cookies@hscontadores.co
-Email General: contacto@hscontadores.co
+  Dirección: Carrera 23 #19 - 20, Oficina 301, Centro Comercial, Manizales, Caldas, Colombia
+Teléfono: +57(300) 888 - 9000
+Email: cookies @hscontadores.co
+Email General: contacto @hscontadores.co
 
 Horario de Atención:
 Lunes a Viernes: 8:00 AM - 6:00 PM
@@ -391,7 +392,7 @@ Responderemos a su consulta en un plazo máximo de 10 días hábiles.`
               <ArrowLeft size={16} />
               <span>Volver al Inicio</span>
             </motion.a>
-            
+
             <div className="flex items-center space-x-4 mb-6 sm:mb-8">
               <IconBox icon={Cookie} variant="gold" size="lg" />
               <div>
@@ -409,7 +410,7 @@ Responderemos a su consulta en un plazo máximo de 10 días hábiles.`
 
             <div className="bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-xl sm:rounded-2xl p-4 sm:p-6">
               <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-4">
-                Esta política explica qué son las cookies, cómo las utilizamos en nuestro sitio web, qué tipos de cookies empleamos, 
+                Esta política explica qué son las cookies, cómo las utilizamos en nuestro sitio web, qué tipos de cookies empleamos,
                 la información que recopilamos mediante cookies y cómo puede gestionar sus preferencias de cookies.
               </p>
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -438,7 +439,7 @@ Responderemos a su consulta en un plazo máximo de 10 días hábiles.`
             {sections.map((section, idx) => (
               <motion.section
                 key={section.id}
-                id={`section-${section.id}`}
+                id={`section - ${section.id} `}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

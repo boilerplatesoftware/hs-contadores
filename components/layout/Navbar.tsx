@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { NAV_ITEMS, SPRING_TRANSITION } from '../constants';
+import { NAV_ITEMS, SPRING_TRANSITION } from '../../constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +17,12 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/95 backdrop-blur-md py-3 sm:py-4 shadow-lg border-b border-[#D4AF37]/10' : 'bg-black py-4 sm:py-6'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md py-3 sm:py-4 shadow-lg border-b border-[#D4AF37]/10' : 'bg-black py-4 sm:py-6'
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={SPRING_TRANSITION}
@@ -63,7 +62,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden p-2 text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -79,9 +78,9 @@ const Navbar: React.FC = () => {
       >
         <div className="px-4 sm:px-6 py-6 flex flex-col space-y-4">
           {NAV_ITEMS.map((item) => (
-            <a 
-              key={item.label} 
-              href={item.href} 
+            <a
+              key={item.label}
+              href={item.href}
               className="text-base sm:text-lg font-semibold text-white hover:text-[#D4AF37] transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
