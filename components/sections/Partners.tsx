@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Globe, Star, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Star, ArrowUpRight } from 'lucide-react';
 import { PARTNERS, SPRING_TRANSITION } from '../../constants';
 import SectionHeader from '../ui/SectionHeader';
 import PartnerCard from '../ui/PartnerCard';
@@ -43,11 +43,10 @@ const Partners: React.FC = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="mt-16 sm:mt-24 md:mt-32 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 py-8 sm:py-12 md:py-16 border-y border-[#D4AF37]/10"
+        className="mt-16 sm:mt-24 md:mt-32 grid grid-cols-1 sm:grid-cols-3 gap-8 py-8 sm:py-12 md:py-16 border-y border-[#D4AF37]/10"
       >
         {[
           { icon: ShieldCheck, value: '100%', label: 'Retención de Socios' },
-          { icon: Globe, value: '12', label: 'Jurisdicciones' },
           { icon: Star, value: '$500M+', label: 'Activos Gestionados' },
           { icon: ArrowUpRight, value: '24/7', label: 'Consultoría Senior' },
         ].map((stat, i) => (

@@ -15,17 +15,42 @@ import {
 import { SPRING_TRANSITION, WHATSAPP_LINK, WHATSAPP_CONFIG } from '../../constants';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    company: '',
+    industry: 'Tecnología / SaaS',
+    service: 'Auditoría Integral',
+    description: ''
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulación de envío a CRM Corporativo
+
+    // Construcción del mensaje organizado para WhatsApp
+    const message = `*Protocolo de Consulta Inicial - HS Contadores*
+--------------------------------------------
+*Empresa:* ${formData.company}
+*Sector:* ${formData.industry}
+*Servicio:* ${formData.service}
+*Requerimiento:* ${formData.description}
+--------------------------------------------
+Solicitud enviada desde el portal corporativo.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_CONFIG.number}?text=${encodedMessage}`;
+
     setTimeout(() => {
       setLoading(false);
       setIsSubmitted(true);
-    }, 1800);
+      window.open(whatsappUrl, '_blank');
+    }, 1500);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -80,13 +105,26 @@ const Contact: React.FC = () => {
                   >
                     <div className="group space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Nombre de la Compañía</label>
-                      <input required type="text" placeholder="Corporativo S.A." className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-lg font-medium" />
+                      <input
+                        required
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Corporativo S.A."
+                        className="w-full pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-lg font-medium"
+                      />
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                       <div className="group space-y-2">
                         <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Sector / Industria</label>
-                        <select className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium text-slate-600 cursor-pointer">
+                        <select
+                          name="industry"
+                          value={formData.industry}
+                          onChange={handleChange}
+                          className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium text-slate-600 cursor-pointer"
+                        >
                           <option>Tecnología / SaaS</option>
                           <option>Manufactura / Logística</option>
                           <option>Banca / Fintech</option>
@@ -96,7 +134,12 @@ const Contact: React.FC = () => {
                       </div>
                       <div className="group space-y-2">
                         <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Servicio Requerido</label>
-                        <select className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium text-slate-600 cursor-pointer">
+                        <select
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="w-full pb-2 sm:pb-3 bg-transparent border-b-2 border-slate-100 focus:border-[#D4AF37] transition-all outline-none text-sm sm:text-base md:text-lg font-medium text-slate-600 cursor-pointer"
+                        >
                           <option>Auditoría Integral</option>
                           <option>Estrategia Tributaria</option>
                           <option>BPO Contable</option>
@@ -107,7 +150,14 @@ const Contact: React.FC = () => {
 
                     <div className="group space-y-2">
                       <label className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">Descripción del Requerimiento Estratégico</label>
-                      <textarea rows={4} placeholder="¿Qué desafíos financieros busca resolver?" className="w-full p-3 sm:p-4 bg-slate-50 border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D4AF37] transition-all outline-none resize-none text-sm sm:text-base text-slate-700" />
+                      <textarea
+                        rows={4}
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        placeholder="¿Qué desafíos financieros busca resolver?"
+                        className="w-full p-3 sm:p-4 bg-slate-50 border-none rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#D4AF37] transition-all outline-none resize-none text-sm sm:text-base text-slate-700"
+                      />
                     </div>
 
                     <motion.button
@@ -197,7 +247,7 @@ const Contact: React.FC = () => {
                     <h4 className="text-sm font-black uppercase tracking-widest text-white/50">Operaciones Latam</h4>
                   </div>
                   <div className="ml-14 flex flex-wrap gap-3">
-                    {['Colombia', 'México', 'Panamá', 'Chile', 'Ecuador'].map(country => (
+                    {['Colombia'].map(country => (
                       <span key={country} className="px-3 py-1 bg-black border border-[#D4AF37]/30 rounded-lg text-xs font-medium text-[#D4AF37]">
                         {country}
                       </span>
